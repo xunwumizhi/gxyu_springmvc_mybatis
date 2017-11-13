@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/jsp/error.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/success.jsp=UTF-8
+encoding//src/gxyu/controller=UTF-8
+encoding//src/gxyu/controller/ItemsController.java=GBK
+encoding//src/gxyu/controller/converter/CustomDateConverter.java=UTF-8
+encoding//src/gxyu/controller/validation=UTF-8
+encoding//src/gxyu/exception=UTF-8
+encoding//src/gxyu/interceptor=UTF-8

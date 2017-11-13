@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="gxyu.mapper.ItemsMapperCustom" >
+
+   <sql id="query_items_where">
+   		<if test="itemsCustom!=null">
+   			<if test="itemsCustom.name!=null and itemsCustom.name!=''">
+   				items.name LIKE '%${itemsCustom.name}%'
+   			</if>
+   		</if>
+   </sql>
+  	
+  	<select id="findItemsList" parameterType="ItemsQueryVo" resultType="ItemsCustom">
+  		SELECT items.* FROM items  
+  		<where>
+  			<include refid="query_items_where"></include>
+  		</where>
+  	</select>
+  	
+</mapper>
