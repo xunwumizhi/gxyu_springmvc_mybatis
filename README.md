@@ -7,6 +7,7 @@ JDK 1.8<br>
 spring 4.0<br>
 mybatis 3.2<br>
 Tomcat 7.0<br>
+mysql 5.0<br>
 暂未使用maven来管理jar包，jar包放在WEB-INF\lib中，myeclipse自动将该目录下jar文件build path到web APP library<br>
     
 <br>
