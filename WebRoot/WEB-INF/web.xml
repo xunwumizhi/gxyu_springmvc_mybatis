@@ -5,13 +5,13 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>gxyu_springmvc_mybatis</display-name>
 	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/applicationContext-*.xml</param-value>
 	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 	
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
