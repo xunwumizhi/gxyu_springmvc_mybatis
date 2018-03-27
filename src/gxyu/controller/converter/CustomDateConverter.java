@@ -6,15 +6,6 @@ import java.util.Date;
 
 import org.springframework.core.convert.converter.Converter;
 
-/**
- * 
- * <p>Title: CustomDateConverter</p>
- * <p>Description:日期转换�?</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-4-13下午5:49:14
- * @version 1.0
- */
 public class CustomDateConverter implements Converter<String,Date>{
 
 	@Override

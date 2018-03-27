@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import gxyu.controller.validation.ValidGroup1;
 import gxyu.controller.validation.ValidGroup2;
+import gxyu.exception.CustomException;
 import gxyu.po.ItemsCustom;
 import gxyu.po.ItemsQueryVo;
 import gxyu.service.ItemsService;
@@ -50,7 +51,7 @@ public class ItemsController {
 	@RequestMapping("/queryItems")
 	public ModelAndView queryItems(HttpServletRequest request,ItemsQueryVo itemsQueryVo) throws Exception{
 	//页面【查询】，参数和形参包装的pojo进行参数绑定，可用来实现条件查询	
-		System.out.println(request.getParameter("id"));
+		System.out.println("----------？？？？？？？？？？？-------"+request.getParameter("id"));
 		List<ItemsCustom> itemsList = itemsService.findItemsList(itemsQueryVo);
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -61,9 +62,12 @@ public class ItemsController {
 	
 	@RequestMapping(value="/editItems",method={RequestMethod.POST,RequestMethod.GET})
 	public String editItems(Model model,@RequestParam(value="id",required=true) int items_id) throws Exception{
-		ItemsCustom itemsCustom = itemsService.findItemsById(items_id);
-		model.addAttribute("items", itemsCustom);
 		
+		ItemsCustom itemsCustom = itemsService.findItemsById(items_id);
+		//测试全局异常处理，这里在controller抛出，最好在service中抛出
+		if(itemsCustom ==null ) throw new CustomException("not exist！");
+		
+		model.addAttribute("items", itemsCustom);
 		return "items/editItems";
 	}
 	
@@ -92,16 +96,17 @@ public class ItemsController {
 			String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));
 			File newFile = new File(pic_path+newFileName);
 			
+			//写入磁盘
 			items_pic.transferTo(newFile);
 			itemsCustom.setPic(newFileName);
 		}
 		
 		itemsService.updateItems(id, itemsCustom);
 		//重定向到商品查询列表
-//		return "redirect:items/queryItems.action";
+		return "redirect:items/queryItems.action";
 		//页面转发
 		//return "forward:items/queryItems.action";
-		return "success";
+		//return "success";
 	}
 	
 	@RequestMapping("/deleteItems")

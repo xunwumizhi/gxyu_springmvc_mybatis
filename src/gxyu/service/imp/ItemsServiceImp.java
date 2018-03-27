@@ -33,7 +33,7 @@ public class ItemsServiceImp implements ItemsService{
 		// TODO Auto-generated method stub
 		Items items = itemsMapper.selectByPrimaryKey(id);
 		if(items==null){
-			throw new CustomException("ĞŞ¸ÄµÄÉÌÆ·ĞÅÏ¢²»´æÔÚ!");
+			throw new CustomException("not existï¼");
 		}
 		ItemsCustom itemsCustom = new ItemsCustom();
 		BeanUtils.copyProperties(items, itemsCustom);

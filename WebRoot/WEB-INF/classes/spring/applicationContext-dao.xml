@@ -25,11 +25,11 @@
 		<property name="maxIdle" value="5" />
 	</bean>
 
+<!-- 配置sqlSession的工厂，参见Spring的DI -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
 	</bean>
-
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
