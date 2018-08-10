@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${item.name }
 					<td>${item.price }
 					<td><fmt:formatDate value="${item.createtime }"
-					                    pattern="yyyy-mm-dd hh:mm:ss" />
+					                    pattern="yyyy-MM-dd HH:mm:ss" />
 					<td>${item.detail }
 					<td><a href="${pageContext.request.contextPath }/items/editItems.action?id=${item.id}">修改</a>
 					

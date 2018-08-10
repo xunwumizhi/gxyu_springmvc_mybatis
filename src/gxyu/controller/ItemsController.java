@@ -84,6 +84,7 @@ public class ItemsController {
 				System.out.println(objectError.getDefaultMessage());
 			}
 			model.addAttribute("allErrors",allErrors);
+			
 			//出错回显数据
 			model.addAttribute("items", itemsCustom);
 			
@@ -103,7 +104,7 @@ public class ItemsController {
 		
 		itemsService.updateItems(id, itemsCustom);
 		//重定向到商品查询列表
-		return "redirect:items/queryItems.action";
+		return "redirect:queryItems.action";
 		//页面转发
 		//return "forward:items/queryItems.action";
 		//return "success";

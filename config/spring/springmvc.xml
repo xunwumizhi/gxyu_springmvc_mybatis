@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 	
 	<context:component-scan base-package="gxyu.controller"></context:component-scan>
-
+	
 	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
